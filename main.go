@@ -13,9 +13,9 @@ import (
 
 func main() {
 	// file path
-	filePathToUpload := os.Args[0]
-	keyOrNameOfFileToUploadS3 := os.Args[1]
-	bucket := os.Args[2]
+	filePathToUpload := os.Args[1]
+	keyOrNameOfFileToUploadS3 := os.Args[2]
+	bucket := os.Args[3]
 
 	cfg, err := external.LoadDefaultAWSConfig()
 	if err != nil {
