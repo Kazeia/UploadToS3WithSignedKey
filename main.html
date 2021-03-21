@@ -14,10 +14,16 @@
             var file = document.getElementById("myFile").files[0]
             console.log(file)
 
-            presignedUrl = "SET_SIGNEDURL_TO_UPLOAD (main.go L:48)"
+            presignedUrl = "SET_SIGNEDURL_TO_UPLOAD"
             fetch(presignedUrl, {
                 method: 'PUT',
-                headers: new Headers(),
+                // Add headers of response from backend, example:
+                headers: new Headers({
+                    'X-Amz-Acl':'public-read',
+                    'Expires':'Sun, 21 Mar 2021 08:01:09 GMT',
+                    'X-Amz-Storage-Class':'STANDARD',
+                    'Content-Type':'image/jpeg'
+                }),
                 body: file
             }).then(e => {
                 console.log(e)
